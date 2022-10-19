@@ -34,13 +34,11 @@ describe("test user-login", () => {
       .post("/api/users/login")
       .send(loginData);
 
-    // check response
     expect(response.statusCode).toBe(200);
     expect(response.body.token).toBeTruthy();
     expect(response.body.user.email).toBeTruthy();
     expect(response.body.user.subscription).toBeTruthy();
 
-    // check to string
     expect(typeof response.body.user.email).toBe("string");
     expect(typeof response.body.user.subscription).toBe("string");
   });
